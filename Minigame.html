@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sun Quiz Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            text-align: center;
+        }
+
+        header {
+            background-color: #ffcc00;
+            padding: 20px;
+            color: white;
+        }
+
+        h1 {
+            font-size: 2.5em;
+        }
+
+        .game-container {
+            padding: 20px;
+        }
+
+        .question {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+
+        .answer-buttons {
+            margin-top: 20px;
+        }
+
+        .answer-buttons button {
+            margin: 10px;
+            padding: 15px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border: none;
+            background-color: #ffcc00;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .answer-buttons button:hover {
+            background-color: #ff9900;
+        }
+
+        .result {
+            font-size: 1.2em;
+            margin-top: 20px;
+            padding: 10px;
+        }
+
+        .game-over {
+            font-size: 2em;
+            color: green;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Sun Quiz Game</h1>
+        <p>Test your knowledge about the Sun!</p>
+    </header>
+
+    <div class="game-container">
+        <div class="question" id="question"></div>
+        <div class="answer-buttons">
+            <button onclick="checkAnswer('a')">A</button>
+            <button onclick="checkAnswer('b')">B</button>
+            <button onclick="checkAnswer('c')">C</button>
+        </div>
+        <div class="result" id="result"></div>
+        <div class="game-over" id="game-over"></div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "How old is the Sun?",
+                options: {
+                    a: "4.6 million years",
+                    b: "4.6 billion years",
+                    c: "46 thousand years"
+                },
+                correctAnswer: "b"
+            },
+            {
+                question: "What is the Sun made of?",
+                options: {
+                    a: "Rock and water",
+                    b: "Gases like hydrogen and helium",
+                    c: "Solid metals"
+                },
+                correctAnswer: "b"
+            },
+            {
+                question: "How many Earths could fit inside the Sun?",
+                options: {
+                    a: "109",
+                    b: "10,000",
+                    c: "1 million"
+                },
+                correctAnswer: "a"
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            const questionData = questions[currentQuestionIndex];
+            document.getElementById("question").textContent = questionData.question;
+            document.querySelectorAll(".answer-buttons button").forEach((button, index) => {
+                const optionKey = ["a", "b", "c"][index];
+                button.textContent = questionData.options[optionKey];
+            });
+        }
+
+        function checkAnswer(selectedOption) {
+            const questionData = questions[currentQuestionIndex];
+            const resultElement = document.getElementById("result");
+            if (selectedOption === questionData.correctAnswer) {
+                resultElement.textContent = "Correct! 🎉";
+                score++;
+            } else {
+                resultElement.textContent = "Oops! That's incorrect. 😢";
+            }
+
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                setTimeout(loadQuestion, 1500);
+            } else {
+                setTimeout(endGame, 1500);
+            }
+        }
+
+        function endGame() {
+            document.getElementById("game-over").textContent = `Game Over! Your score is: ${score} out of ${questions.length}`;
+            document.getElementById("question").style.display = "none";
+            document.querySelector(".answer-buttons").style.display = "none";
+        }
+
+        loadQuestion();
+    </script>
+
+</body>
+</html>

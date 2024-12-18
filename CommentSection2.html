@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 2rem;
+        }
+        .comment-section {
+            max-width: 600px;
+            margin: auto;
+            padding: 1rem;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .comment-section h3 {
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .comment-section textarea {
+            width: 100%;
+            height: 100px;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+        }
+        .comment-section button {
+            margin-top: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: #ffcc00;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+        }
+        .comment-section button:hover {
+            background-color: #ff8800;
+        }
+        .comments-list {
+            margin-top: 2rem;
+        }
+        .comments-list div {
+            padding: 0.5rem;
+            border-bottom: 1px solid #ddd;
+        }
+        .comments-list h4 {
+            margin-bottom: 0.5rem;
+        }
+
+       nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #00008B;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 15px;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            background-color: #575757;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+       <header>
+        <nav>
+            <ul class="menu">
+                <li><a href="Minigame.html" target="content">Minigame</a>
+            </ul>
+        </nav>
+    </header>
+
+
+    <div class="comment-section">
+        <h3>Leave a Comment</h3>
+        <textarea placeholder="Write your comment here..."></textarea>
+        <button type="button">Submit</button>
+        <div class="comments-list">
+            <h4>Comments:</h4>
+            <div>No comments yet.</div>
+        </div>
+    </div>
+</body>
+</html>
